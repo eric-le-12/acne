@@ -7,3 +7,4 @@ pillow
 h5py
 tensorflow
 gunicorn== 19.9.0
+keras_efficientnets
