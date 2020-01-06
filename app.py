@@ -32,7 +32,7 @@ print('Model loaded. Check http://127.0.0.1:5000/')
 
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/your_model.h5'
+MODEL_PATH = 'models/acne_model.h5'
 
 # Load your own trained model
 # model = load_model(MODEL_PATH)
@@ -76,6 +76,7 @@ def predict():
 
         # Process your result for human
         pred_proba = "{:.3f}".format(np.amax(preds))    # Max probability
+        print(pred_proba)
         pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
 
         result = str(pred_class[0][0][1])               # Convert to string
@@ -83,7 +84,7 @@ def predict():
         
         # Serialize the result, you can add additional fields
         return jsonify(result=result, probability=pred_proba)
-
+        a=1
     return None
 
 
@@ -93,3 +94,5 @@ if __name__ == '__main__':
     # Serve the app with gevent
     http_server = WSGIServer(('0.0.0.0', 5000), app)
     http_server.serve_forever()
+
+ 
