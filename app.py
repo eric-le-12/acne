@@ -8,11 +8,12 @@ from gevent.pywsgi import WSGIServer
 # TensorFlow and tf.keras
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+from keras.applications.vgg16 import preprocess_input, decode_predictions
 from keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from keras_efficientnets import EfficientNetB4
 from keras_efficientnets import custom_objects
+from keras.utils.data_utils import get_file
 
 # Some utilites
 import numpy as np
@@ -27,11 +28,12 @@ app = Flask(__name__)
 
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/acne_model.h5'
+MODEL_PATH = 'https://uce6f6689cf76fa5b4c6b6a9a1e3.dl.dropboxusercontent.com/cd/0/get/Avof7GWj8mrs1k-DN3zRN_N4ybi2a3tHVWX6goHNO4hJvMeOF-tVXfs48m3uINTINkrEH-a4C3YqVC5LCJwXCDzRyhR2wihUsv7HlUAVuRGEULPVgkBTHcBwdy-jEN_J7xc/file?dl=1#'
 
 # Load your own trained model
 print('Prepare to load')
-model = load_model(MODEL_PATH,compile=False)
+h5_path = get_file('model.h5',MODEL_PATH)
+model = load_model(h5_path,compile=False)
 model._make_predict_function()          # Necessary
 print('Model loaded. Start serving...')
 
