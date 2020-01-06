@@ -28,7 +28,7 @@ app = Flask(__name__)
 
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'https://uce6f6689cf76fa5b4c6b6a9a1e3.dl.dropboxusercontent.com/cd/0/get/Avof7GWj8mrs1k-DN3zRN_N4ybi2a3tHVWX6goHNO4hJvMeOF-tVXfs48m3uINTINkrEH-a4C3YqVC5LCJwXCDzRyhR2wihUsv7HlUAVuRGEULPVgkBTHcBwdy-jEN_J7xc/file?dl=1#'
+MODEL_PATH = 'https://www.dropbox.com/s/w9w2p8jurfk9vqn/acne_model.h5?dl=1'
 
 # Load your own trained model
 print('Prepare to load')
